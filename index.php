@@ -3,13 +3,12 @@ class Cat {
     public $name;
     private $age;
 
-    public function __construct($name, $age) {
-        $this->name = $name;
-        $this->age = $age;
-    }
-
     public function birthday() {
         $this->age++;
+    }
+
+    public function setAge($age) {
+        $this->age = $age;
     }
 
     public function getAge() {
@@ -17,11 +16,18 @@ class Cat {
     }
 }
 
-$mincis = new Cat("Mincis", 0);
-$bincis = new Cat("Bincis", 0);
+$mincis = new Cat();
+$mincis->name = "Mincis";
+$mincis->setAge(3);
+
+$bincis = new Cat();
+$bincis->name = "Bincis";
+$bincis->setAge(23);
 
 echo $mincis->name;
 echo $bincis->name;
 
 $mincis->birthday();
+echo $mincis->name . " age: " . $mincis->getAge();
+echo $bincis->name . " age: " . $mincis->getAge();
 ?>
